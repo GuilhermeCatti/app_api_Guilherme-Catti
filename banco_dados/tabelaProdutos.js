@@ -1,7 +1,10 @@
 const Modelo = require('./ModeloTabelaProdutos')
 
 module.exports = {
-    listar () {
-        return Modelo.findAll()
+    async listar () {
+        return await console.table(Modelo.findAll())
+    },
+    async create ({nome, descricao, foto, preco, categoria} ){
+        return await Modelo.create({nome, descricao, foto, preco, categoria} )
     }
 }

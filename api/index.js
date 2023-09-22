@@ -6,8 +6,8 @@ const config = require('config');
 
 app.use(bodyParser.json());
 
-const roteador = require("./rotas/rotas_produto.js");
-
-app.use("/api/produtos", roteador);
+const roteador = require("../rotas/rota_produto");
 
 app.listen(3000, ()=>{"Olá, mundo!"});
+
+app.use("/api/produtos", roteador)
