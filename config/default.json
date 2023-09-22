@@ -3,6 +3,7 @@
         "banco-de-dados":"loja",
         "usuario":"root",
         "senha":"123456",
-        "host":"localhost"
+        "host":"localhost",
+        "porta": "5446"
     }
 }

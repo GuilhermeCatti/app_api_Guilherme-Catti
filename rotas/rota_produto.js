@@ -1,5 +1,9 @@
 const roteador = require("express").Router();
-const produtos = require("../banco_dados/tabelaProdutos")
+const produtos = require("../banco_dados/tabelaProdutos");
+
+const instancia = require("../banco_dados/ModeloTabelaProdutos");
+
+instancia.sync().then(() => console.log('Tabela criada com sucesso'));
 
 roteador.get("/", async(requisicao, resposta)=>{
     resposta.send(
