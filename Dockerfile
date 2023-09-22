@@ -5,7 +5,7 @@ FROM node:16
 WORKDIR /app
 
 #Copie os arquivos do projeto para o contêiner
-COPY package.json package-lock.json /app;
+COPY package.json package-lock.json /app/
 RUN npm install
 
 #Copie o código-fonte do aplicativo para o contêiner
