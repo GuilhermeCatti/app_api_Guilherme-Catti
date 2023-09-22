@@ -22,4 +22,32 @@ roteador.post("/",async (requisicao, resposta)=>{
     )
 })
 
+roteador.get("/:id", async(requisicao, resposta)=>{
+    const {id} = requisicao.params;
+    const produto = await produtos.localizar(id);
+    resposta.send(
+        JSON.stringify(produto)
+    )
+}
+)
+
+roteador.put("/:id", async(requisicao, resposta)=>{
+    const {id} = requisicao.params;
+    const {nome, descricao, foto, preco, categoria} = requisicao.body;
+    const produto = await produtos.atualizar(id, nome, descricao, foto, preco, categoria);
+    resposta.send(
+        JSON.stringify(produto)
+    )
+}
+)
+
+roteador.delete("/:id", async(requisicao, resposta)=>{
+    const {id} = requisicao.params;
+    await produtos.remover(id)
+    resposta.send(
+        JSON.stringify({mensagem:"Produto removido"})
+    )
+}
+)
+
 module.exports = roteador;
